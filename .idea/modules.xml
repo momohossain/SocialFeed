@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SocialFeed.iml" filepath="$PROJECT_DIR$/SocialFeed.iml" />
+      <module fileurl="file://C:\Users\tdog8\Documents\GitHub\SocialFeed\SocialFeed.iml" filepath="C:\Users\tdog8\Documents\GitHub\SocialFeed\SocialFeed.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\tdog8\Documents\GitHub\SocialFeed\app\app.iml" filepath="C:\Users\tdog8\Documents\GitHub\SocialFeed\app\app.iml" />
     </modules>
   </component>
 </project>
