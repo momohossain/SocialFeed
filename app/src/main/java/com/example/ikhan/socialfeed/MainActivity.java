@@ -3,6 +3,7 @@ package com.example.ikhan.socialfeed;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.FaceDetector;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,13 +20,14 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import java.util.Arrays;
+
 public class MainActivity extends Activity {
 
     TextView txtStatus;
     LoginButton loginButton;
     CallbackManager callbackManager;
     Button next;
-    AccessToken accessToken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -37,8 +39,17 @@ public class MainActivity extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, Feed.class);
-                MainActivity.this.startActivity(intent);
+                if (AccessToken.getCurrentAccessToken()==null){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage("Must Login First")
+                            .setNegativeButton("Retry", null)
+                            .create()
+                            .show();
+                }
+                else {
+                    Intent intent = new Intent(MainActivity.this, Feed.class);
+                    MainActivity.this.startActivity(intent);
+                }
             }
         });
 
@@ -49,15 +60,16 @@ public class MainActivity extends Activity {
         callbackManager=CallbackManager.Factory.create();
         //txtStatus=(TextView)findViewById(R.id.Status);
         loginButton=(LoginButton)findViewById(R.id.login_button);
+        loginButton.setReadPermissions(Arrays.asList("user_posts"));
         next=(Button)findViewById(R.id.Next);
 
 
     }
+
     private void loginWithFB(){
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                accessToken=loginResult.getAccessToken();
              //   txtStatus.setText("Login Success\n"+loginResult.getAccessToken());
             }
 
@@ -79,4 +91,5 @@ public class MainActivity extends Activity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 }
