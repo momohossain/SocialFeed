@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
     private void intializeControls(){
         callbackManager=CallbackManager.Factory.create();
         //txtStatus=(TextView)findViewById(R.id.Status);
-        loginButton=(LoginButton)findViewById(R.id.login_button);
+        loginButton=(LoginButton)findViewById(R.id.facebook_login_button);
         loginButton.setReadPermissions(Arrays.asList("user_posts"));
         next=(Button)findViewById(R.id.Next);
 

@@ -8,70 +8,83 @@
 
     <ImageView
         android:id="@+id/welcome_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:adjustViewBounds="true"
         android:background="@color/colorPrimaryDark"
+        android:cropToPadding="false"
         android:src="@drawable/mainimage"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <ImageView
         android:id="@+id/gradient"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:src="@drawable/gradient"
+        android:layout_height="wrap_content"
+        android:alpha="0.2"
+        android:background="?android:attr/statusBarColor"
         android:scaleType="fitXY"
-        android:alpha="0.2"/>
+        android:src="@drawable/gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Next"
         style="@style/Base.TextAppearance.AppCompat.Body1"
-        android:layout_width="match_parent"
+        android:layout_width="246dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:background="@drawable/background_login"
         android:clickable="true"
         android:padding="16dp"
         android:text="Next"
-        android:textColor="#f16f7d"
+        android:textColor="#FFF9A825"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/welcome_background"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/gradient"
+        app:layout_constraintEnd_toStartOf="@+id/gradient"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gradient"
+        app:layout_constraintTop_toBottomOf="@+id/facebook_login_button"
+        app:layout_constraintVertical_bias="0.703" />
 
     <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="223dp"
-        android:layout_height="43dp"
+        android:id="@+id/facebook_login_button"
+        android:layout_width="246dp"
+        android:layout_height="25dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/Next"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintTop_toBottomOf="@+id/welcome_background"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="Social Feed"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="#FFF9A825"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/welcome_background"
-        app:layout_constraintVertical_bias="0.238"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintBottom_toTopOf="@+id/gradient"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045" />
 
 
 </android.support.constraint.ConstraintLayout>
